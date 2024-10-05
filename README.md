@@ -24,8 +24,3 @@ You can install these dependencies using:
 
 ```bash
 pip install pandas numpy requests plotly
-
-or
-
-```bash
-pip install -r requirements.txt
