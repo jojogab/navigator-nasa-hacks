@@ -1,3 +1,3 @@
-import services.charts as c
+import charts as c
 
 c.create_chart()

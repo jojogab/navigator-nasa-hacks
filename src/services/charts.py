@@ -8,7 +8,7 @@ def create_chart(save_to_file=False):
     df = q.make_request()
 
     if df is not None:
-        df = df.dropna(subset=['pl_bmasse', 'pl_rade', 'sy_dist'])
+        df = df.dropna(subset=['pl_bmasse', 'pl_rade', 'sy_dist', 'density'])
         if len(df) == 0:
             print("Nenhum dado disponível para visualização.")
         else:
@@ -18,7 +18,8 @@ def create_chart(save_to_file=False):
             planet_radius = df['pl_rade'].tolist()
             planet_mass = df['pl_bmasse'].tolist()
             temperature = df['pl_eqt'].tolist()
-            habitability_scores = [s.calculate_habitability(temp, dens, grav) for temp, dens, grav in zip(temperature, density, gravity)]
+            density = df['density'].tolist()
+            habitability_scores = [s.calculate_habitability(temp, dens, grav) for temp, dens, grav in zip(temperature, density, planet_mass)]
 
             sizeref_value = max(planet_diameter) / 30
             
@@ -40,8 +41,8 @@ def create_chart(save_to_file=False):
 
             fig = go.Figure(data=go.Scatter3d(
                 x=distance_from_earth,
-                y=density,
-                z=gravity,
+                y=planet_radius,
+                z=planet_mass,
                 text=hover_text,
                 mode='markers',
                 marker=dict(
