@@ -1,0 +1,70 @@
+body {
+    background: linear-gradient(180deg, #000428, #004e92); 
+    color: #e0e0e0; 
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; 
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); 
+}
+
+.logo-container {
+    display: flex;
+    gap: 30px;
+}
+
+.logo {
+    height: 60px;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+h1 {
+    margin: 20px 0;
+    font-size: 3em; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+#chart {
+    width: 80%;
+    height: 80%;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); 
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #e0e0e0;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 -1px 5px rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .logo {
+        height: 50px; 
+    }
+    h1 {
+        font-size: 2.5em; 
+    }
+}
