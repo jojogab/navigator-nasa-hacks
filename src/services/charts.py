@@ -14,7 +14,9 @@ def create_chart(save_to_file=False):
         else:
             planets = df['pl_name'].tolist()
             distance_from_earth = df['sy_dist_pc'].tolist()
-            planet_diameter = (df['pl_rade'] * 2).astype(float).tolist()
+            planet_diameter = (df['pl_radius_m'] * 2).astype(float).tolist()
+            planet_radius = df['pl_radius_m'].tolist()
+            planet_mass = df['pl_mass_kg'].tolist()
             density = df['density'].tolist()
             gravity = df['gravity'].tolist()
             temperature = df['pl_eqt'].tolist()
@@ -32,8 +34,8 @@ def create_chart(save_to_file=False):
             hover_text = [
                 f"<span style='color: white; font-size: 14px;'>Planet: {planets[i]}<br>"
                 f"Distance: {distance_from_earth[i]:.2f} pc<br>"
-                f"Density: {density[i]:.2f} kg/m³<br>"
-                f"Gravity: {gravity[i]:.2f} m/s²<br>"
+                f"Radius: {planet_radius[i]:.2f} m<br>"
+                f"Mass: {planet_mass[i]:.2f} kg<br>"
                 f"Habitability Score: {habitability_scores[i]}%</span>"
                 for i in range(len(planets))
             ]
@@ -69,7 +71,7 @@ def create_chart(save_to_file=False):
                         color='white'
                     ),
                     yaxis=dict(
-                        title='Density (kg/m³)',
+                        title='Radius (m)',
                         titlefont_color='white',
                         showbackground=True,
                         backgroundcolor='black',
@@ -78,7 +80,7 @@ def create_chart(save_to_file=False):
                         color='white'
                     ),
                     zaxis=dict(
-                        title='Gravity (m/s²)',
+                        title='Mass (kg)',
                         titlefont_color='white',
                         showbackground=True,
                         backgroundcolor='black',
@@ -95,7 +97,7 @@ def create_chart(save_to_file=False):
             if save_to_file:
                 # Exportar para JSON
                 fig_json = fig.to_json()
-                with open("chart_data.json", "w") as f:
+                with open("./src/chart_data.json", "w") as f:
                     f.write(fig_json)
                 print("Gráfico salvo em chart_data.json")
             else:
