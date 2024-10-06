@@ -1,7 +1,6 @@
 import requests
 import pandas as pd
 import numpy as np
-import charts as c
 
 def make_request():
     base_url = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync"

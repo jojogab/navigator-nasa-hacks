@@ -19,8 +19,8 @@ def create_chart(save_to_file=False):
             planet_mass = df['pl_bmasse'].tolist()
             temperature = df['pl_eqt'].tolist()
             density = df['density'].tolist()
-            habitability_scores = [s.calculate_habitability(temp, dens, mass) for temp, dens, mass in zip(temperature, density, planet_mass)].tolist()
-            observabillity_scores = [s.calculate_obserbility(dist, rad, mass) for dist, rad, mass in zip(distance_from_earth, planet_radius, planet_mass)]
+            habitability_scores = [s.calculate_habitability(temp, dens, mass) for temp, dens, mass in zip(temperature, density, planet_mass)]
+            observability_scores = [s.calculate_obserbility(dist, rad, mass) for dist, rad, mass in zip(distance_from_earth, planet_radius, planet_mass)]
 
             sizeref_value = max(planet_diameter) / 30
             
@@ -36,7 +36,8 @@ def create_chart(save_to_file=False):
                 f"Distance: {distance_from_earth[i]:.2f} pc<br>"
                 f"Radius: {planet_radius[i]:.2f} X earth(radius)<br>"
                 f"Mass: {planet_mass[i]:.2f} earths<br>"
-                f"Habitability Score: {observabillity_scores[i]}%</span>"
+                f"Observability Score: {observability_scores[i]}%</span><BR>"
+                f"Habitability Score: {habitability_scores[i]}%</span>"
                 for i in range(len(planets))
             ]
 
@@ -50,9 +51,9 @@ def create_chart(save_to_file=False):
                     sizemode='diameter',
                     sizeref=sizeref_value,
                     size=planet_diameter,
-                    color=observabillity_scores,
+                    color=observability_scores,
                     colorscale=colorscale,
-                    colorbar_title='Habitability Score (%)',
+                    colorbar_title='Observability Score (%)',
                     line=dict(width=2, color='black'),  # Contorno dos marcadores
                     opacity=0.8  # Ajustando a opacidade
                 ),
