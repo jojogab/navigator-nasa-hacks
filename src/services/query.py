@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 import numpy as np
+import charts as c
 
 def make_request():
     base_url = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync"
@@ -8,7 +9,7 @@ def make_request():
     query = """
     SELECT pl_name, ra, dec, sy_dist, pl_orbper, pl_rade, pl_bmasse, pl_eqt,
         st_teff, st_rad, pl_orbsmax
-    FROM p
+    FROM pscomppars
     WHERE pl_rade > 0.5 AND pl_rade < 2.0 AND pl_bmasse < 6
     AND pl_eqt > 200 AND pl_eqt < 400
     ORDER BY sy_dist ASC
