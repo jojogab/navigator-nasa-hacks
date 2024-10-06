@@ -8,17 +8,15 @@ def create_chart(save_to_file=False):
     df = q.make_request()
 
     if df is not None:
-        df = df.dropna(subset=['pl_bmasse', 'pl_rade', 'sy_dist_pc', 'density', 'gravity'])
+        df = df.dropna(subset=['pl_bmasse', 'pl_rade', 'sy_dist'])
         if len(df) == 0:
             print("Nenhum dado disponível para visualização.")
         else:
             planets = df['pl_name'].tolist()
-            distance_from_earth = df['sy_dist_pc'].tolist()
-            planet_diameter = (df['pl_radius_m'] * 2).astype(float).tolist()
-            planet_radius = df['pl_radius_m'].tolist()
-            planet_mass = df['pl_mass_kg'].tolist()
-            density = df['density'].tolist()
-            gravity = df['gravity'].tolist()
+            distance_from_earth = df['sy_dist'].tolist()
+            planet_diameter = (df['pl_rade'] * 2).astype(float).tolist()
+            planet_radius = df['pl_rade'].tolist()
+            planet_mass = df['pl_bmasse'].tolist()
             temperature = df['pl_eqt'].tolist()
             habitability_scores = [s.calculate_habitability(temp, dens, grav) for temp, dens, grav in zip(temperature, density, gravity)]
 
@@ -34,8 +32,8 @@ def create_chart(save_to_file=False):
             hover_text = [
                 f"<span style='color: white; font-size: 14px;'>Planet: {planets[i]}<br>"
                 f"Distance: {distance_from_earth[i]:.2f} pc<br>"
-                f"Radius: {planet_radius[i]:.2f} m<br>"
-                f"Mass: {planet_mass[i]:.2f} kg<br>"
+                f"Radius: {planet_radius[i]:.2f} X earth(radius)<br>"
+                f"Mass: {planet_mass[i]:.2f} earths<br>"
                 f"Habitability Score: {habitability_scores[i]}%</span>"
                 for i in range(len(planets))
             ]
@@ -71,7 +69,7 @@ def create_chart(save_to_file=False):
                         color='white'
                     ),
                     yaxis=dict(
-                        title='Radius (m)',
+                        title='Radius (x Earth(radius))',
                         titlefont_color='white',
                         showbackground=True,
                         backgroundcolor='black',
@@ -80,7 +78,7 @@ def create_chart(save_to_file=False):
                         color='white'
                     ),
                     zaxis=dict(
-                        title='Mass (kg)',
+                        title='Mass (earths)',
                         titlefont_color='white',
                         showbackground=True,
                         backgroundcolor='black',

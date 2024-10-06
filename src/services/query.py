@@ -25,19 +25,7 @@ def make_request():
         data = response.json()
         df = pd.DataFrame(data)
 
-        # Convertendo distância de anos-luz para parsecs
-        df['sy_dist_pc'] = df['sy_dist'] / 3.262  # 1 parsec ≈ 3.262 anos-luz
-
-        # Calculando densidade (kg/m³) e gravidade (m/s²)
-        df['pl_mass_kg'] = df['pl_bmasse'] * 5.972e24  # Massa em kg (massa da Terra)
         df['pl_radius_m'] = df['pl_rade'] * 6.371e6   # Raio em metros (raio da Terra)
-
-        # Densidade = M / (4/3 * π * R³)
-        df['density'] = df['pl_mass_kg'] / ((4/3) * np.pi * (df['pl_radius_m']**3))
-
-        # Gravidade = G * M / R²
-        G = 6.674e-11  # Constante gravitacional
-        df['gravity'] = (G * df['pl_mass_kg']) / (df['pl_radius_m']**2)
 
         return df
     else:
