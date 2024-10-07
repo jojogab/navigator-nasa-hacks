@@ -75,10 +75,9 @@ For the frontend development, we created a 3D application that organizes planets
 ## Autores
 
 - [@kritgarb](https://www.github.com/kritgarb)
-- [@fdoargolo] (https://github.com/fdoargolo)
-- [@jojogab] (https://github.com/jojogab)
-- [@ziulalb] (https://github.com/ziulalb)
-- [@viferreira-p] (https://github.com/viferreira-p)
+- [@fdoargolo](https://github.com/fdoargolo)
+- [@jojogab](https://github.com/jojogab)
+- [@ziulalb](https://github.com/ziulalb)
 
 ## Documentação de cores
 

@@ -15,12 +15,6 @@ def calculate_habitability(temperature, density, mass):
     return score
 
 def calculate_obserbility(distanceEarth, planetRadius, planetMass):
-
-<<<<<<< HEAD
-=======
-      
-    
->>>>>>> 30e5e37d310589f88c0741bfa711fc8f8167db2f
     s_radius = (planetRadius - (0.75)/(3.5- 0.75)) * 0.4
     s_distance = (1 - (distanceEarth/613)) * 0.2 
     s_mass = ((planetMass - 1)/(5- 1)) * 0.4     
@@ -30,5 +24,3 @@ def calculate_obserbility(distanceEarth, planetRadius, planetMass):
         return 0
     
     return score
-
-
