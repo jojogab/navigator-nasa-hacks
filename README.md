@@ -68,7 +68,7 @@ For the frontend development, we created a 3D application that organizes planets
 
 ## Screenshots
 
-![App Screenshot](https://drive.google.com/file/d/1yd1vYzxmRnp-MxyBTsC-wJ96PjW5Pf1_/view?usp=drive_link)
+[App Screenshot](https://drive.google.com/uc?export=view&id=1yd1vYzxmRnp-MxyBTsC-wJ96PjW5Pf1_)
 ![App Screenshot](https://drive.google.com/file/d/1NnCsdDx_tV9z0uagydtvR0yjOSj2dwIa/view?usp=drive_link)
 
 
