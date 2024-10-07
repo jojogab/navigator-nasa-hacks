@@ -1,7 +1,6 @@
 import requests
 import pandas as pd
 import numpy as np
-import charts as c
 
 def make_request():
     base_url = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync"
@@ -26,14 +25,10 @@ def make_request():
         data = response.json()
         df = pd.DataFrame(data)
 
-        # Converter raio do planeta em metros
-        df['pl_radius_m'] = df['pl_rade'] * 6.371e6   # Raio em metros (raio da Terra)
+        df['pl_radius_m'] = df['pl_rade'] * 6.371e6   
 
-        # Calcular o volume do planeta (esfera) em metros cúbicos
         df['volume'] = (4/3) * np.pi * (df['pl_radius_m'] ** 3)
 
-        # Calcular a densidade (massa / volume)
-        # Assumindo que pl_bmasse é a massa do planeta (em massas terrestres)
         df['density'] = df['pl_bmasse'] / df['volume']
         G = 6.67430e-11 
         df['gravity'] = (G * df['pl_bmasse'])/df['pl_rade'] ** 2
