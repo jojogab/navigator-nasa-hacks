@@ -7,8 +7,10 @@ The challenge involves working with existing datasets, such as the [NASA Exoplan
 
 ## Features
 - **Exoplanet Data Querying**: Fetch data from NASA’s Exoplanet Archive.
-- **Visualization**: Create charts and graphs that display exoplanet characteristics (e.g., distance from the star, size, and SNR).
-- **Habitability Scoring**: Rank planets based on their potential for habitability.
+- **Habitability and Observability Scoring**:
+    - **Habitability Score**: Based on planetary characteristics (distance from the star, size, etc.).
+    - **Observability Score**: Dynamically calculated based on user-defined parameters `x`, `y`, and `z`. Only exoplanets with a score greater than zero are shown.
+
 
 ## Installation
 
@@ -24,3 +26,5 @@ You can install these dependencies using:
 
 ```bash
 pip install pandas numpy requests plotly
+```
+
