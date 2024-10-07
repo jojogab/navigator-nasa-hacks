@@ -5,7 +5,7 @@ A 3D application that interactively showcases the potential of the Habitable Wor
 # Project Demo
 [Video Presentation](https://drive.google.com/file/d/1sXnv5yVxffHoo5NAmxHZYCpBK5xh0rPW/view?usp=sharing)
 
-[Final Project](https://github.com/jojogab/navigator-nasa-hacks)
+[Website](https://nasaspaceappsaju.z15.web.core.windows.net/)
 
 ## Documentation
 
